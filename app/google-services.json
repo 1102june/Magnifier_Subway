@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "316616100891",
+    "project_id": "magsubway-997f0",
+    "storage_bucket": "magsubway-997f0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316616100891:android:69f91ddde476c5a2d2fcbe",
+        "android_client_info": {
+          "package_name": "com.company.magsub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAe5Frj0kfW6uhvD8zAXKs5CzxJTvKKVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
