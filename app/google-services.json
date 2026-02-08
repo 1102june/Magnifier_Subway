@@ -12,7 +12,20 @@
           "package_name": "com.company.magsub"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "316616100891-i9obd16uj8dmd36oq30gde130gfnma5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.company.magsub",
+            "certificate_hash": "0f8f982b1eb4c103d38777ced81ad50f8f2c91eb"
+          }
+        },
+        {
+          "client_id": "316616100891-4d9ku880tbcrbllg18b3rhs7m0f19hg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDAe5Frj0kfW6uhvD8zAXKs5CzxJTvKKVU"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316616100891-4d9ku880tbcrbllg18b3rhs7m0f19hg7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
