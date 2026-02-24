@@ -18,6 +18,7 @@ import com.example.magnifier_subway.ui.screens.RouteResultScreen
 import com.example.magnifier_subway.ui.screens.RouteResult
 import com.example.magnifier_subway.ui.screens.StationSearchScreen
 import com.example.magnifier_subway.ui.theme.Magnifier_SubwayTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 sealed class Screen {
     object Main : Screen()
@@ -26,6 +27,7 @@ sealed class Screen {
     data class Result(val routeResult: RouteResult) : Screen()
 }
 
+@AndroidEntryPoint //hiltViewModel 호출을 위함.
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

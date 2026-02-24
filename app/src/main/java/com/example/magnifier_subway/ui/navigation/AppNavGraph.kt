@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.magnifier_subway.ui.auth.LoginScreen
+import com.example.magnifier_subway.ui.auth.LoginViewModel
 import com.example.magnifier_subway.ui.screens.MainScreen
 import com.example.magnifier_subway.ui.splash.SplashScreen
 

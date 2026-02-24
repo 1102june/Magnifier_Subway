@@ -1,4 +1,5 @@
 package com.example.magnifier_subway.domain
+
 data class User(
     val uid: String,
     //Guest든 Google이든 고유식별자가 존재
