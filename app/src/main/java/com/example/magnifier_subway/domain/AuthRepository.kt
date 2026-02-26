@@ -1,5 +1,6 @@
 package com.example.magnifier_subway.domain
-/* 어떤 기능을 할것인가의 정의*/
+/* 어떤 기능을 할것인가의 정의
+* Firebase와 통신 후 USER 모델로 변환*/
 import com.example.magnifier_subway.domain.User
 
 interface AuthRepository {

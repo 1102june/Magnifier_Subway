@@ -9,10 +9,11 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 // Interface
+// auth Repository, auth Repository Binding
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule{
-    @Binds
+    @Binds  //내부 인터페이스 연결  @Binds 활용
     @Singleton
     abstract fun bindAuthRepository(
         authRepositoryImpl: AuthRepositoryImpl
