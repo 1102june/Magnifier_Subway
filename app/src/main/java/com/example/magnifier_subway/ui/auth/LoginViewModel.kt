@@ -20,7 +20,7 @@ class LoginViewModel @Inject constructor(
 
 //Guest Login
 fun signInAnonymously() {
-    viewModelScope.launch {  //로그인 진행중에 다른 작업을해도 멈추지 않도록
+    viewModelScope.launch {  //로그인 진행중에 다른 작업을 해도 멈추지 않도록
         val result = authRepository.signInAnonymously()
         result.onSuccess {
             // 로그인 성공시 UI에게 True 전달

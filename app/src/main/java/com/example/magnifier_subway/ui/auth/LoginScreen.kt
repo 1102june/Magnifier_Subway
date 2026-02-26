@@ -1,8 +1,10 @@
 package com.example.magnifier_subway.ui.auth
 
+import android.R
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -12,36 +14,18 @@ fun LoginScreen(
     viewModel: LoginViewModel,
     onLoginSuccess: () -> Unit
 ) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(24.dp)
-        ) {
-            Text(text = "로그인", style = MaterialTheme.typography.headlineMedium)
-            Spacer(modifier = Modifier.height(20.dp))
-
-            Button(
-                onClick = { /* TODO: 구글 원탭 로그인 붙일 자리 */ },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp)
-            ) {
-                Text("Google로 계속하기")
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            OutlinedButton(
-                onClick = { onLoginSuccess() },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp)
-            ) {
-                Text("게스트로 시작하기")
+    //ViewModel Login 성공 이벤트 관찰 (수동 이동 방지)
+    LaunchedEffect(Unit) {
+        viewModel.loginEvent.collect { isSuccess->
+            if(isSuccess){
+                onLoginSuccess// 성공 Signal 도착시 화면 전환
             }
         }
     }
+
+    // 전체 배경 검정색 설정
+    Surface (
+        modifier = Modifier.fillMaxSize(),
+        R.color = Color(0xFF000000) // Black
+    )
 }
