@@ -8,4 +8,7 @@ interface AuthRepository {
 //게스트 로그인 약속
     suspend fun getCurrentUser(): User?
     // 현재 유저정보 가져오기
+
+    //구글 로그인
+    suspend fun signInWithGoogle(idToken: String): Result<User>
 }
