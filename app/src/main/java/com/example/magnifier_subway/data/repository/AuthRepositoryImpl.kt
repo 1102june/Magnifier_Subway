@@ -1,16 +1,15 @@
-package com.example.magnifier_subway.data.respository
+package com.example.magnifier_subway.data.repository
 
-import com.example.magnifier_subway.domain.User
 import com.example.magnifier_subway.domain.AuthRepository
+import com.example.magnifier_subway.domain.User
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthCredential
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth // Hilt가 Firebase 주입 예정
-) :  AuthRepository {
+) : AuthRepository {
 
     override suspend fun signInAnonymously(): Result<User> {
         return try {

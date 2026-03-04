@@ -10,4 +10,6 @@ plugins {
 
     id("com.google.devtools.ksp") version "2.0.21-1.0.27" apply false
     // kotlin 버전에 맞는 KSP 버전 사용
+
+
 }

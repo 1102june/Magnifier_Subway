@@ -1,6 +1,6 @@
 package com.example.magnifier_subway.di
 
-import com.example.magnifier_subway.data.respository.AuthRepositoryImpl
+import com.example.magnifier_subway.data.repository.AuthRepositoryImpl
 import com.example.magnifier_subway.domain.AuthRepository
 import dagger.Binds
 import dagger.Module

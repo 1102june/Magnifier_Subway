@@ -12,5 +12,5 @@ import javax.inject.Singleton
 object AppModule  {  //Hilt가 FirebaseAuth가 필요하다하면 갖다줘.
     @Provides  //외부 Firebase가져오는거니까 @Provides 활용
     @Singleton
-    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()  //getInstance를 활용한 물 공구ㅡㅂ
+    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()  //getInstance를 활용한 물 공급
 }

@@ -6,6 +6,7 @@ plugins {
     id("com.google.gms.google-services") // 구글 서비스 플러그인 적용
     id("com.google.dagger.hilt.android") // Hitl Plugin
     id("com.google.devtools.ksp") // KSP Plugin (Kotlin Symbol Plugins)
+    id("kotlin-kapt")
 }
 
 android {
@@ -79,4 +80,14 @@ dependencies {
     implementation("androidx.credentials:credentials-play-services-auth:1.2.2")
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
 
+    //RoomDB
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    kapt("androidx.room:room-compiler:$room_version") // Kotlin Annotation Processor
+
+    //Retrofit for api
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0") // JSON 변환용
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0") // 로그 확인용
 }
