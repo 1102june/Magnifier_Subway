@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:316616100891:android:69f91ddde476c5a2d2fcbe",
+        "mobilesdk_app_id": "1:316616100891:android:64e1bf5508ddd903d2fcbe",
         "android_client_info": {
-          "package_name": "com.company.magsub"
+          "package_name": "com.example.magnifier_subway"
         }
       },
       "oauth_client": [
         {
-          "client_id": "316616100891-i9obd16uj8dmd36oq30gde130gfnma5t.apps.googleusercontent.com",
+          "client_id": "316616100891-de43e3bhsilk82d2q5ogslto5gi7cv3k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.company.magsub",
+            "package_name": "com.example.magnifier_subway",
             "certificate_hash": "0f8f982b1eb4c103d38777ced81ad50f8f2c91eb"
           }
         },
