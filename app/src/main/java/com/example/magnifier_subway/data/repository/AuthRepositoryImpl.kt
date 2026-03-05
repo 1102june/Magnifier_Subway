@@ -34,7 +34,7 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun signInWithGoogle(idToken: String): Result<User> {
         return try {
-            // 구글에서 받은 토큰으로 Firebase용 명함(Credential) 만들기
+            // 구글에서 받은 토큰으로 Firebase용 명함 만들기
             val credential = GoogleAuthProvider.getCredential(idToken, null)
             val result = firebaseAuth.signInWithCredential(credential).await()
             val firebaseUser = result.user
