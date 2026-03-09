@@ -10,58 +10,54 @@ import com.example.magnifier_subway.ui.auth.LoginScreen
 import com.example.magnifier_subway.ui.auth.LoginViewModel
 import com.example.magnifier_subway.ui.screens.MainScreen
 import com.example.magnifier_subway.ui.splash.SplashScreen
-
 @Composable
 fun AppNavGraph(
     navController: NavHostController
 ) {
-    NavHost(  //우리 앱의 모든 화면이 갈아끼워지는 곳.
+    NavHost(
         navController = navController,
-        startDestination = Routes.SPLASH //앱 키자마자 Splash 되도록
-    ){
+        startDestination = Routes.SPLASH
+    ) {
+        // 1) Splash 화면
         composable(Routes.SPLASH) {
             SplashScreen(
-                onNavigateToLogin = {
+                onTimeout = {
+                    // 💡 핵심 수정: navigate 뒤에 중괄호 { } 를 열고 그 안에 옵션을 넣어야 합니다!
                     navController.navigate(Routes.LOGIN) {
                         popUpTo(Routes.SPLASH) { inclusive = true }
-                        // 이전 화면 Stack을 완전히 역사에서 지워버림.
-                        launchSingleTop = true
-                    }
-                },
-                onNavigateToMain = {
-                    navController.navigate(Routes.MAIN) {
-                        popUpTo(Routes.SPLASH) { inclusive = true }
-                        // popUpto활용하여 되감기가 불가하도록.
                         launchSingleTop = true
                     }
                 }
             )
         }
-        // 로그인 성공시 Main으로 이동.
+
+        // 2) 로그인 성공시 Main으로 이동
         composable(Routes.LOGIN) {
             val viewModel: LoginViewModel = hiltViewModel()
-            // ViewModel을 직접 생성하지 않고 Hilt에게 직접 주입 부탁.
-
             LoginScreen(
                 viewModel = viewModel,
                 onLoginSuccess = {
                     navController.navigate(Routes.MAIN) {
                         popUpTo(Routes.LOGIN) { inclusive = true }
-                        launchSingleTop = true //화면이 두 개가 겹쳐서 뜨는것을 방지
+                        launchSingleTop = true
                     }
                 }
             )
         }
 
-        // 3) Main
+        // 3) Main 화면
         composable(Routes.MAIN) {
             MainScreen(
-                // main에서 길찾기 버튼 누르면 Result로 갈 준비
-                onNavigateToResult = {stationName ->
-                    navController.navigate("result/$stationName")
+                onDepartureClick = {
+                    // TODO: 나중에 연결
+                },
+                onArrivalClick = {
+                    // TODO: 나중에 연결
+                },
+                onRouteMapClick = {
+                    // TODO: 나중에 연결
                 }
             )
         }
-    }
     }
 }

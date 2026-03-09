@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.magnifier_subway" />
+                  <option name="mobileSdkAppId" value="1:316616100891:android:64e1bf5508ddd903d2fcbe" />
+                  <option name="projectId" value="magsubway-997f0" />
+                  <option name="projectNumber" value="316616100891" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
