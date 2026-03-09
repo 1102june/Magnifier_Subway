@@ -34,6 +34,8 @@ fun LoginScreen(
         viewModel.loginEvent.collect { isSuccess ->
             if (isSuccess) {
                 onLoginSuccess() // () 추가해서 실행
+            } else{
+                println("Login Failure!")
             }
         }
     }
@@ -64,6 +66,8 @@ fun LoginScreen(
                 onClick = {
                     scope.launch {
                         try {
+                            // 구글 로그인창 띄울준비
+                            val credentialManager = CredentialManager.create(context)
                             val googleIdOption = GetGoogleIdOption.Builder()
                                 .setFilterByAuthorizedAccounts(false)
                                 .setServerClientId("316616100891-4d9ku880tbcrbllg18b3rhs7m0f19hg7.apps.googleusercontent.com") // 💡 나중에 실제 ID로 교체
@@ -72,14 +76,21 @@ fun LoginScreen(
                             val request = GetCredentialRequest.Builder()
                                 .addCredentialOption(googleIdOption)
                                 .build()
-
+                            // 구글 로그인 창 띄우고 결과 기다리기
                             val result = credentialManager.getCredential(context, request)
                             val credential = result.credential
-
+                            // 결과에서 idToken 기다림.
                             if (credential is CustomCredential &&
                                 credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
+
+                                // 1. 먼저 상자(객체)를 만듭니다.
                                 val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(credential.data)
-                                viewModel.signInWithGoogle(googleIdTokenCredential.idToken)
+
+                                // 2. 💡 핵심: 상자 안에서 진짜 토큰 문자열(String)만 쏙 꺼냅니다!
+                                val actualIdTokenString = googleIdTokenCredential.idToken
+
+                                // 3. 뽑아낸 진짜 토큰(String)을 ViewModel로 전달!
+                                viewModel.handleGoogleSignIn(idToken = actualIdTokenString, onLoginSuccess = onLoginSuccess)
                             }
                         } catch (e: Exception) {
                             e.printStackTrace()
