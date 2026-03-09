@@ -14,8 +14,25 @@ class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository
     // Hilt에게 가져올 부품 시킴
     ) :ViewModel() {
-    private val _loginEvent = MutableSharedFlow<Boolean>()
+        private  val _loginEvent = MutableSharedFlow<Boolean>()
         val loginEvent = _loginEvent.asSharedFlow()
+        // UI에서 Credential Manager로 부터 받아올 토큰을 여기로 넘겨줌
+
+        // 구글 로그인
+        fun handleGoogleSignIn(idToken: String, onLoginSuccess: () -> Unit) {
+            viewModelScope.launch {
+                // Repository의 진짜 구글 로그인 함수 호출
+                val result = authRepository.signInWithGoogle(idToken)
+
+                result.onSuccess { user ->
+                    println("🔥 파이어베이스 로그인 성공! UID: ${user.uid}")
+                    onLoginSuccess() // AppNavGraph로 성공 신호 보내서 Main으로 이동!
+                }.onFailure { e ->
+                    println("🔥 구글 로그인 실패: ${e.message}")
+                }
+            }
+        }
+
  //UI에 보낼 신호. Success or Failure
 
 //Guest Login
