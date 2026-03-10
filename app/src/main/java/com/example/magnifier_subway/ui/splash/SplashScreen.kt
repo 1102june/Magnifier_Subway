@@ -17,7 +17,7 @@ fun SplashScreen(
     onTimeout: () -> Unit
 ) {
     LaunchedEffect(Unit) {
-        delay(1500L)
+        delay(1500L) //1.5초
         onTimeout()
     }
 
@@ -31,7 +31,7 @@ fun SplashScreen(
             Image(
                 painter = painterResource(id = R.drawable.app_logo),
                 contentDescription = "App Logo",
-                modifier = Modifier.size(140.dp)
+                modifier = Modifier.size(380.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
