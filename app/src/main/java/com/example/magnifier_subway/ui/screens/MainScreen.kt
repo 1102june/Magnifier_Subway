@@ -25,6 +25,7 @@ fun MainScreen(
     onDepartureClick: () -> Unit,
     onArrivalClick: () -> Unit,
     onRouteMapClick: () -> Unit,
+    onLogoutClick: () -> Unit, // 로그아웃 클릭 이벤트
     departureStation: String? = null,
     arrivalStation: String? = null
 ) {
