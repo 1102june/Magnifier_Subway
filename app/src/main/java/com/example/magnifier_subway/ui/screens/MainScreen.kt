@@ -3,6 +3,7 @@ package com.example.magnifier_subway.ui.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -16,6 +17,8 @@ import androidx.compose.ui.unit.dp
 import com.example.magnifier_subway.ui.theme.Black
 import com.example.magnifier_subway.ui.theme.White
 import com.example.magnifier_subway.ui.theme.Yellow
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.rememberScrollState
 
 @Composable
 fun MainScreen(
@@ -25,11 +28,13 @@ fun MainScreen(
     departureStation: String? = null,
     arrivalStation: String? = null
 ) {
+    val scrollState = rememberScrollState() //Scroll 상태 기억
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Yellow)
-            .padding(24.dp),
+            .padding(24.dp)
+            .verticalScroll(scrollState),
         verticalArrangement = Arrangement.spacedBy(32.dp)
     ) {
         // 상단: 출발역/도착역 선택 영역
