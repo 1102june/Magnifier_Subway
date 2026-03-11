@@ -29,6 +29,22 @@ fun MainScreen(
     departureStation: String? = null,
     arrivalStation: String? = null
 ) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .systemBarsPadding()  // 위아래 화면 잘리는거 padding값 부여
+    ) {
+        Button(
+            onClick = {
+                onLogoutClick() // logout 버튼으로 이어줌.
+            },
+            modifier = Modifier
+                .align(Alignment.TopStart)
+                .padding(16.dp)
+        ) {
+            Text("로그아웃")
+        }
+    }
     val scrollState = rememberScrollState() //Scroll 상태 기억
     Column(
         modifier = Modifier
