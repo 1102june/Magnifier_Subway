@@ -13,6 +13,7 @@ import com.example.magnifier_subway.ui.splash.SplashScreen
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 
+
 @Composable
 fun AppNavGraph(
     navController: NavHostController
@@ -25,15 +26,14 @@ fun AppNavGraph(
         composable(Routes.SPLASH) {
             SplashScreen(
                 onTimeout = {
-                   val currentUser = Firebase.auth.currentUser
+                    val currentUser = Firebase.auth.currentUser
 
                     if (currentUser != null) {  //currentUser가 없으면 바로 Main으로 이동
                         navController.navigate(Routes.MAIN) {
                             popUpTo(Routes.SPLASH) { inclusive = true }
                             launchSingleTop = true
                         }
-                    }
-                    else {
+                    } else {
                         navController.navigate(Routes.LOGIN) {
                             popUpTo(Routes.SPLASH) { inclusive = true }
                             launchSingleTop = true
@@ -68,6 +68,14 @@ fun AppNavGraph(
                 },
                 onRouteMapClick = {
                     // TODO: 나중에 연결
+                },
+                        onLogoutClick = {
+                    Firebase.auth.signOut() // 파베 로그아웃처리
+
+                    navController.navigate(Routes.LOGIN) {
+                        popUpTo(Routes.MAIN) { inclusive = true }
+                        launchSingleTop = true
+                    }
                 }
             )
         }

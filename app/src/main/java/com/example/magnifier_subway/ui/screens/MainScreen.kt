@@ -39,7 +39,7 @@ fun MainScreen(
                 onLogoutClick() // logout 버튼으로 이어줌.
             },
             modifier = Modifier
-                .align(Alignment.TopStart)
+                .align(Alignment.TopStart)  // 왼쪽 상단으로.
                 .padding(16.dp)
         ) {
             Text("로그아웃")
